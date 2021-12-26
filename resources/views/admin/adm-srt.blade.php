@@ -86,7 +86,7 @@
                         </tr>
                         <tr>
                         <th><iframe src="{{ asset($data->url_bab1) }}" title="description" style="height: 350px;width:350px;"></iframe></th>
-                        <th><iframe src="{{ asset($data->url_surat_dosen) }}" title="description" style="height: 350px;width:350px;"></iframe></th>
+                        <th><iframe src="{{ $data->url_surat_dosen ? asset($data->url_surat_dosen) : '' }}" title="description" style="height: 350px;width:350px;"></iframe></th>
                         </tr>
                     </table>
                 </div>

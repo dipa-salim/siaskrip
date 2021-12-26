@@ -166,6 +166,7 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
+        // ini buat cek kalo data kosong
         if (!$request->password || $request->password == "") {
             Alert::error('Gagal', 'Password dan Confirm Password harus diisi');
             return redirect()->back();

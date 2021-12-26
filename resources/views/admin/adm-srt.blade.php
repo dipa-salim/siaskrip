@@ -49,7 +49,7 @@
                         </button>
                     </td>
                     <td align="center">
-                        @if ($data->status == 'approved')
+                        @if ($data->status == 'approved_kaprodi')
                         <button class="btn btn-success btn-block btn-sm" data-toggle="modal" data-target="#setujui-{{ $key }}" >Setujui</button>
                         @else
                         <a href="{{ route('SuratTugas.cancelSurat', ['id' => $data->id_surat_tugas]) }}" class="btn btn-danger btn-block btn-sm" >Batal</a>

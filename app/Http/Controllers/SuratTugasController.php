@@ -214,7 +214,7 @@ class SuratTugasController extends Controller
         $update = SuratTugas::where('id_surat_tugas', $id)->update([
             'dosen_pembimbing1' => $request->dosen_pembimbing1 == 0 ? $request->dosen_pembimbing1_text : $request->dosen_pembimbing1,
             'dosen_pembimbing2' => $request->dosen_pembimbing2 == 0 ? $request->dosen_pembimbing2_text : $request->dosen_pembimbing2,
-            'status' => 'approved'
+            'status' => 'approved_kaprodi'
         ]);
 
         $dataSurat = SuratTugas::where('id_surat_tugas', $id)->first();

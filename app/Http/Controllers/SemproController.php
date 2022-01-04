@@ -169,11 +169,6 @@ class SemproController extends Controller
 
     public function updateRevisi(Request $request, $id)
     {
-        // if (!$request->url_surat_skripsi || $request->url_surat_skripsi == "") {
-        //     Alert::error('Gagal', 'File harus diisi');
-        //     return redirect()->back();
-        // }
-
         if (!$request->hasFile('url_surat_skripsi')) {
             Alert::error('Gagal', 'File harus diisi');
             return redirect()->back();

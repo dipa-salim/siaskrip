@@ -44,7 +44,7 @@
                         </button>
                     </td>
                     <td align="center">
-                        @if ($data->status_surat == 'belum_approve_sempro')
+                        @if ($data->status_sempro == 'belum_approve')
                         <button class="btn btn-success btn-block btn-sm" data-toggle="modal" data-target="#setujui-{{ $key }}" >Setujui</button>
                         @else
                         <a href="{{ route('MhsBimbingan.cancelSempro', ['id' => $data->id_mhs_bimbingan]) }}" class="btn btn-danger btn-block btn-sm" >Batal</a>

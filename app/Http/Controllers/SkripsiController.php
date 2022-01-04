@@ -202,11 +202,6 @@ class SkripsiController extends Controller
 
     public function updateKaprodi(Request $request, $id)
     {
-        // $fileNameTugas = time() . '_' . $request->file('url_surat_tugas')->getClientOriginalName();
-        // $filePathTugas = $request->file('url_surat_tugas')->storeAs('uploads', $fileNameTugas, 'public');
-
-        // $url_surat_tugas = '/storage/' . $filePathTugas;
-
         if (!$request->dosen_pembimbing1 || $request->dosen_pembimbing1 == "") {
             Alert::error('Maaf', 'Dosen pembimbing 1 harus diisi');
             return redirect()->back();
@@ -240,11 +235,6 @@ class SkripsiController extends Controller
 
     public function updateKaprodiRevisi(Request $request, $id)
     {
-        // $fileNameTugas = time() . '_' . $request->file('url_surat_tugas')->getClientOriginalName();
-        // $filePathTugas = $request->file('url_surat_tugas')->storeAs('uploads', $fileNameTugas, 'public');
-
-        // $url_surat_tugas = '/storage/' . $filePathTugas;
-
         if (!$request->dosen_pembimbing1 || $request->dosen_pembimbing1 == "") {
             Alert::error('Maaf', 'Dosen pembimbing 1 harus diisi');
             return redirect()->back();

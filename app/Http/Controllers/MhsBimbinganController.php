@@ -440,7 +440,7 @@ class MhsBimbinganController extends Controller
     public function cancelSurat($id)
     {
         $update = MhsBimbingan::where('id_mhs_bimbingan', $id)->update([
-            'status_surat' => 'belum_approve'
+            'status_surat_tugas' => 'belum_approve'
         ]);
         Alert::success('Berhasil', 'Unggahan berhasil dibatalkan');
         return redirect()->back();
@@ -449,7 +449,7 @@ class MhsBimbinganController extends Controller
     public function cancelSempro($id)
     {
         $update = MhsBimbingan::where('id_mhs_bimbingan', $id)->update([
-            'status_surat' => 'belum_approve_sempro'
+            'status_sempro' => 'belum_approve'
         ]);
         Alert::success('Berhasil', 'Unggahan berhasil dibatalkan');
         return redirect()->back();
@@ -458,7 +458,7 @@ class MhsBimbinganController extends Controller
     public function cancelRvsSempro($id)
     {
         $update = MhsBimbingan::where('id_mhs_bimbingan', $id)->update([
-            'status_surat' => 'belum_approve_rvs_sempro'
+            'status_surat_skripsi' => 'belum_approve'
         ]);
         Alert::success('Berhasil', 'Unggahan berhasil dibatalkan');
         return redirect()->back();
@@ -467,7 +467,7 @@ class MhsBimbinganController extends Controller
     public function cancelSkripsi($id)
     {
         $update = MhsBimbingan::where('id_mhs_bimbingan', $id)->update([
-            'status_surat' => 'belum_approve_skripsi'
+            'status_skripsi' => 'belum_approve'
         ]);
         Alert::success('Berhasil', 'Unggahan berhasil dibatalkan');
         return redirect()->back();
@@ -476,7 +476,7 @@ class MhsBimbinganController extends Controller
     public function cancelRvsSkripsi($id)
     {
         $update = MhsBimbingan::where('id_mhs_bimbingan', $id)->update([
-            'status_surat' => 'belum_approve_rvs_skripi'
+            'status_hasil_skripsi' => 'belum_approve'
         ]);
         Alert::success('Berhasil', 'Unggahan berhasil dibatalkan');
         return redirect()->back();

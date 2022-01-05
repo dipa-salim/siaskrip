@@ -12,7 +12,7 @@
 @section('content')
 <div class="card mx-auto" style="width: 400px">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">You are only one step a way from your new password, recover your password now.</p>
+      <p class="login-box-msg">Silahkan untuk mengubah password disini</p>
 
       <form action="{{ route('User.update') }}" method="post" enctype="multipart/form-datas">
         @csrf

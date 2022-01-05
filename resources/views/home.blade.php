@@ -4,7 +4,6 @@
   <li class="breadcrumb-item active">Dashboard Mahasiswa</li>
 @endsection
 @section('content')
-    <!-- Default box -->
 <div class="card">
   <div class="card-header">
     <h3 class="card-title">Semangat Tuntaskan Skripsimu !</h3>

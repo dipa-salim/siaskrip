@@ -25,9 +25,9 @@
           <table id="laporan" class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
+                    <th>No.</th>
                     <th>NIM</th>
                     <th>Nama Mahasiswa</th>
-                    <th>Judul Skripsi</th>
                     <th>Surat Tugas</th>
                     <th>Seminar Proposal</th>
                     <th>Hasil Seminar Proposal</th>

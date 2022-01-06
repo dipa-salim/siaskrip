@@ -120,6 +120,12 @@ class SuratTugasController extends Controller
                 'status' => 'belum_approve_kaprodi'
             ]);
 
+            if ($request->hasFile('url_surat_dosen')) {
+                $update = MhsBimbingan::where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->whereNotIn('status_dospem', ['dibatalkan'])->update([
+                    'id_surat_tugas' => $insert->id
+                ]);
+            }
+
             DB::commit();
             Alert::success('Berhasil', 'File Berhasil Diupload');
             return redirect()->back();
@@ -219,28 +225,38 @@ class SuratTugasController extends Controller
 
         $dataSurat = SuratTugas::where('id_surat_tugas', $id)->first();
 
-        $insert = MhsBimbingan::insert([
-            [
-                'id_mahasiswa' => $request->mahasiswa,
-                'id_dosen' => $request->dosen_pembimbing1 == 0 ? $request->dosen_pembimbing1_text : $request->dosen_pembimbing1,
-                'status_dospem' => 'disetujui',
-                'judul_skripsi' => $dataSurat->judul_skripsi,
-                'created_at' => date('Y-m-d H:i:s'),
-                'url_surat_dosen' => $dataSurat->url_surat_dosen,
-                'url_bab1' => $dataSurat->url_bab1,
-                'status_surat_tugas' => $dataSurat->status
-            ],
-            [
-                'id_mahasiswa' => $request->mahasiswa,
-                'id_dosen' => $request->dosen_pembimbing2 == 0 ? $request->dosen_pembimbing2_text : $request->dosen_pembimbing2,
-                'status_dospem' => 'disetujui',
-                'judul_skripsi' => $dataSurat->judul_skripsi,
-                'created_at' => date('Y-m-d H:i:s'),
-                'url_surat_dosen' => $dataSurat->url_surat_dosen,
-                'url_bab1' => $dataSurat->url_bab1,
-                'status_surat_tugas' => $dataSurat->status
-            ]
-        ]);
+        if ($dataSurat->url_surat_dosen) {
+            $update = MhsBimbingan::where('id_mahasiswa', $dataSurat->id_mahasiswa)->whereIn('status_dospem', ['disetujui'])->update([
+                'id_surat_tugas' => $id,
+                'status_surat_tugas' => 'approved_kaprodi'
+            ]);
+        } else {
+            $insert = MhsBimbingan::insert([
+                [
+                    'id_surat_tugas' => $id,
+                    'id_mahasiswa' => $request->mahasiswa,
+                    'id_dosen' => $request->dosen_pembimbing1 == 0 ? $request->dosen_pembimbing1_text : $request->dosen_pembimbing1,
+                    'status_dospem' => 'disetujui',
+                    'judul_skripsi' => $dataSurat->judul_skripsi,
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'url_surat_dosen' => $dataSurat->url_surat_dosen,
+                    'url_bab1' => $dataSurat->url_bab1,
+                    'status_surat_tugas' => $dataSurat->status
+                ],
+                [
+                    'id_surat_tugas' => $id,
+                    'id_mahasiswa' => $request->mahasiswa,
+                    'id_dosen' => $request->dosen_pembimbing2 == 0 ? $request->dosen_pembimbing2_text : $request->dosen_pembimbing2,
+                    'status_dospem' => 'disetujui',
+                    'judul_skripsi' => $dataSurat->judul_skripsi,
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'url_surat_dosen' => $dataSurat->url_surat_dosen,
+                    'url_bab1' => $dataSurat->url_bab1,
+                    'status_surat_tugas' => $dataSurat->status
+                ]
+            ]);
+        }
+
         Alert::success('Berhasil', 'Data Berhasil Diupload');
         return redirect()->back();
     }
@@ -358,6 +374,14 @@ class SuratTugasController extends Controller
             'dosen_pembimbing1' => '',
             'dosen_pembimbing2' => ''
         ]);
+
+        // $dataIdMhs = SuratTugas::select('id_mahasiswa')->where('id_surat_tugas', $id)->first();
+        // $dataIdMhs = $dataIdMhs->id_mahasiswa;
+
+        $updateBimbingan = MhsBimbingan::where('id_surat_tugas', $id)->where('status_dospem', '<>', 'belum_disetujui')->update([
+            'status_dospem' => 'dibatalkan'
+        ]);
+
         Alert::success('Berhasil', 'Unggahan berhasil dibatalkan');
         return redirect()->back();
     }

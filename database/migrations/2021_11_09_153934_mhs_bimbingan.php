@@ -18,6 +18,9 @@ class MhsBimbingan extends Migration
             $table->unsignedBigInteger('id_dosen');
             $table->unsignedBigInteger('id_mahasiswa');
             $table->unsignedBigInteger('id_judul_sebelumnya')->nullable();
+            $table->unsignedBigInteger('id_surat_tugas')->nullable();
+            $table->unsignedBigInteger('id_sempro')->nullable();
+            $table->unsignedBigInteger('id_skripsi')->nullable();
             $table->string('status_dospem')->nullable();
             $table->string('status_surat_tugas')->nullable();
             $table->string('status_sempro')->nullable();

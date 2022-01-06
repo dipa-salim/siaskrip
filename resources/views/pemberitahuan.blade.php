@@ -58,10 +58,14 @@
             </tr>
             @endif
             @if ($lembar_dosen)
-            <tr>
-                <td>Lembar Persetujuan Dosen Pembimbing</td>
-                <td align="center"><a href="{{ asset($lembar_dosen->url_surat_dosen_ttd) }}" target="_blank" class="btn btn-info btn-block btn-sm" style="width: 50%">Download</a></td>
-            </tr>
+                @foreach ($lembar_dosen as $item)
+                    @if($item->url_surat_dosen_ttd)
+                    <tr>
+                        <td>Lembar Persetujuan Dosen Pembimbing</td>
+                        <td align="center"><a href="{{ asset($item->url_surat_dosen_ttd) }}" target="_blank" class="btn btn-info btn-block btn-sm" style="width: 50%">Download</a></td>
+                    </tr>
+                    @endif
+                @endforeach
             @endif
             @if ($setuju_sempro)
             <tr>

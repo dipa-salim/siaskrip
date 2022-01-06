@@ -392,12 +392,12 @@
             </li>
           </ul>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
           <a href="/progres" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>Laporan</p>
           </a>
-        </li>
+        </li> --}}
         <li class="nav-item">
             <a href="{{ url('logout') }}" class="nav-link {{  request()->is('logout') ? 'active' : ''}}">
               <i class="nav-icon fas fa-solid fa-arrow-right"></i>

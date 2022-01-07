@@ -47,7 +47,7 @@
 
 <!-- Modal Setujui -->
 
-@foreach ($data_mhs as $key => $data)
+@foreach ($data_dosen as $key => $data)
 <form action="{{ route('MhsBimbingan.updateSempro', ['id' => $data->id_mhs_bimbingan]) }}" method="POST" enctype="multipart/form-data">
     @csrf
     <!-- Extra large modal -->
@@ -62,7 +62,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <input type="hidden" name="id_dosen" value="{{ $data->id_dosen }}">
+                        {{-- <input type="hidden" name="id_dosen" value="{{ $data->id_dosen }}"> --}}
                         <label for="exampleInputFile1">Lembar Pengesahan Dosen Pembimbing</label>
                         <div class="input-group">
                           <div class="custom-file">

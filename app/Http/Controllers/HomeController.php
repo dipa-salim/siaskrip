@@ -48,10 +48,10 @@ class HomeController extends Controller
         $jadwal_skripsi = Skripsi::where('status', 'approved')->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->first();
 
         $lembar_dosen = MhsBimbingan::whereIn('status_surat_tugas', ['approved', 'approved_kaprodi'])->whereNotIn('status_dospem', ['dibatalkan', 'belum_disetujui'])->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->get();
-        $setuju_sempro = MhsBimbingan::whereIn('status_sempro', ['approved', 'approved_kaprodi'])->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->first();
-        $rvs_sempro = MhsBimbingan::whereIn('status_surat_skripsi', ['approved', 'approved_kaprodi'])->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->first();
-        $setuju_skripsi = MhsBimbingan::whereIn('status_skripsi', ['approved', 'approved_kaprodi'])->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->first();
-        $rvs_skripsi = MhsBimbingan::whereIn('status_hasil_skripsi', ['approved', 'approved_kaprodi'])->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->first();
+        $setuju_sempro = MhsBimbingan::whereIn('status_sempro', ['approved', 'approved_kaprodi'])->whereNotIn('status_dospem', ['dibatalkan', 'belum_disetujui'])->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->first();
+        $rvs_sempro = MhsBimbingan::whereIn('status_surat_skripsi', ['approved', 'approved_kaprodi'])->whereNotIn('status_dospem', ['dibatalkan', 'belum_disetujui'])->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->first();
+        $setuju_skripsi = MhsBimbingan::whereIn('status_skripsi', ['approved', 'approved_kaprodi'])->whereNotIn('status_dospem', ['dibatalkan', 'belum_disetujui'])->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->first();
+        $rvs_skripsi = MhsBimbingan::whereIn('status_hasil_skripsi', ['approved', 'approved_kaprodi'])->whereNotIn('status_dospem', ['dibatalkan', 'belum_disetujui'])->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->first();
 
         return view('pemberitahuan', [
             'data_surat' => $data_surat,

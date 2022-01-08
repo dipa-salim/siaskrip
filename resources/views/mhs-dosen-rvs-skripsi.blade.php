@@ -47,7 +47,7 @@
 
 <!-- Modal Setujui -->
 
-@foreach ($data_mhs as $key => $data)
+@foreach ($data_dosen as $key => $data)
 <form action="{{ route('MhsBimbingan.updateRvsSkripsi', ['id' => $data->id_mhs_bimbingan] ) }}" method="POST" enctype="multipart/form-data">
     @csrf
     <!-- Extra large modal -->

@@ -72,7 +72,7 @@
                 <td><span style="font-family: Arial, Helvetica, sans-serif">2. {{ $dospem[1]->dosen()->first()->nama }}</span></td>
             </tr>
             <tr>
-                <td><span style="font-family: Arial, Helvetica, sans-serif">Tanggal pertemuan pertama*</td>
+                <td><span style="font-family: Arial, Helvetica, sans-serif">Tanggal pertemuan pertama</span></td>
                 <td>:</td>
                 <td align="right"><span style="font-family: Arial, Helvetica, sans-serif"></span>Paraf KPSJ *</td>
                 <td><span style="font-family: Arial, Helvetica, sans-serif"></span>......</td>

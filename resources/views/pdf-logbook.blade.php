@@ -128,6 +128,6 @@
         </table>
         <br>
         <br>
-        <div><span style="font-family: Arial, Helvetica, sans-serif; font-size: 12pt">* Diisi dan diparaf paling lambat 2 minggu setelah mendapatkan dosen pembimbing</div>
+        <div><span style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt">* Diisi dan diparaf paling lambat 2 minggu setelah mendapatkan dosen pembimbing</div>
         </body>
 </html>

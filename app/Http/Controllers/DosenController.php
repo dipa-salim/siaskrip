@@ -20,11 +20,13 @@ class DosenController extends Controller
      */
     public function index()
     {
-        $surat_tugas = MhsBimbingan::where('status_surat_tugas', 'belum_approve')->count();
-        $sempro = MhsBimbingan::where('status_sempro', 'belum_approve')->count();
-        $rvs_sempro = MhsBimbingan::where('status_surat_skripsi', 'belum_approve')->count();
-        $skripsi = MhsBimbingan::where('status_skripsi', 'belum_approve')->count();
-        $rvs_skripsi = MhsBimbingan::where('status_hasil_skripsi', 'belum_approve')->count();
+        $dosen = Dosen::where('id_user', auth()->user()->id_user)->first();
+
+        $surat_tugas = MhsBimbingan::where('status_surat_tugas', 'belum_approve')->where('id_dosen',$dosen->id_dosen)->count();
+        $sempro = MhsBimbingan::where('status_sempro', 'belum_approve')->where('id_dosen',$dosen->id_dosen)->count();
+        $rvs_sempro = MhsBimbingan::where('status_surat_skripsi', 'belum_approve')->where('id_dosen',$dosen->id_dosen)->count();
+        $skripsi = MhsBimbingan::where('status_skripsi', 'belum_approve')->where('id_dosen',$dosen->id_dosen)->count();
+        $rvs_skripsi = MhsBimbingan::where('status_hasil_skripsi', 'belum_approve')->where('id_dosen',$dosen->id_dosen)->count();
         return view('dosen.index', compact('surat_tugas', 'sempro', 'rvs_sempro', 'skripsi', 'rvs_skripsi'));
     }
 

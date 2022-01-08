@@ -393,16 +393,6 @@ class MhsBimbinganController extends Controller
     public function dosenPembimbing()
     {
         $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->id_user)->first();
-        // dd($request->input("url_surat_dosen"));
-
-        // $data_dosen = DB::table('tb_dosen AS td')->select('td.nip', 'td.nama')
-        //     ->join('tb_mhs_bimbingan AS tmb', 'td.id_dosen', '=', 'tmb.id_mahasiswa')
-        //     ->where('tmb.id_mahasiswa', $data_mahasiswa->id_mahasiswa)
-        //     ->get();
-        // return view('mhs-dosen-pembimbing', [
-        //     'data_dosen' => $data_dosen
-        // ]);
-
         $data_dosen = Dosen::all();
         return view('mhs-dosen-pembimbing', [
             'data_dosen' => $data_dosen

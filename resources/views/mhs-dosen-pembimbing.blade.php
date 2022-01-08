@@ -117,11 +117,11 @@
     //     $(target).modal('show')
     // });
 </script>
-<script>
+{{-- <script>
     .custom-file-input ~ .custom-file-label::after {
     content: "Button Text";
 }
-</script>
+</script> --}}
     <script>
       $("#MasterData").addClass("active");
       $("#liMasterData").addClass("menu-open");

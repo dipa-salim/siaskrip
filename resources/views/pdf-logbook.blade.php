@@ -72,7 +72,7 @@
                 <td><span style="font-family: Arial, Helvetica, sans-serif">2. {{ $dospem[1]->dosen()->first()->nama }}</span></td>
             </tr>
             <tr>
-                <td><span style="font-family: Arial, Helvetica, sans-serif">Tanggal pertemuan pertama</span></td>
+                <td><span style="font-family: Arial, Helvetica, sans-serif">Tanggal Pertemuan Pertama</span></td>
                 <td>:</td>
                 <td align="right"><span style="font-family: Arial, Helvetica, sans-serif"></span>Paraf KPSJ *</td>
                 <td><span style="font-family: Arial, Helvetica, sans-serif"></span>......</td>
@@ -125,7 +125,9 @@
                     <div><span style="font-family: Arial, Helvetica, sans-serif">NIP. 197203252005011002</div>
                 </td>
             </tr>
-
         </table>
+        <br>
+        <br>
+        <div><span style="font-family: Arial, Helvetica, sans-serif; font-size: 12pt">* Diisi dan diparaf paling lambat 2 minggu setelah mendapatkan dosen pembimbing</div>
         </body>
 </html>

@@ -403,7 +403,7 @@ class MhsBimbinganController extends Controller
     {
         $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->id_user)->first();
         // $data_mhs = MhsBimbingan::where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->where('status_sempro', 'belum_approve')->get();
-        $data_dosen = DB::table('tb_dosen')->select('tb_dosen.*', 'tb_mhs_bimbingan.id_mhs_bimbingan')->join('tb_mhs_bimbingan', 'tb_dosen.id_dosen', '=', 'tb_mhs_bimbingan.id_dosen')->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->where('status_sempro', 'belum_approve')->get();
+        $data_dosen = DB::table('tb_dosen')->select('tb_dosen.*', 'tb_mhs_bimbingan.id_mhs_bimbingan')->join('tb_mhs_bimbingan', 'tb_dosen.id_dosen', '=', 'tb_mhs_bimbingan.id_dosen')->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->where('status_sempro', null)->get();
         // dd($data_dosen);
         return view('mhs-dosen-sempro', compact('data_dosen'));
     }
@@ -412,7 +412,7 @@ class MhsBimbinganController extends Controller
     {
         $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->id_user)->first();
         // $data_mhs = MhsBimbingan::where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->where('status_sempro', 'belum_approve')->get();
-        $data_dosen = DB::table('tb_dosen')->select('tb_dosen.*', 'tb_mhs_bimbingan.id_mhs_bimbingan')->join('tb_mhs_bimbingan', 'tb_dosen.id_dosen', '=', 'tb_mhs_bimbingan.id_dosen')->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->where('status_surat_skripsi', 'belum_approve')->get();
+        $data_dosen = DB::table('tb_dosen')->select('tb_dosen.*', 'tb_mhs_bimbingan.id_mhs_bimbingan')->join('tb_mhs_bimbingan', 'tb_dosen.id_dosen', '=', 'tb_mhs_bimbingan.id_dosen')->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->where('status_surat_skripsi', null)->get();
         // dd($data_dosen);
         return view('mhs-dosen-rvs-sempro', compact('data_dosen') );
     }
@@ -421,7 +421,7 @@ class MhsBimbinganController extends Controller
     {
         $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->id_user)->first();
         // $data_mhs = MhsBimbingan::where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->where('status_sempro', 'belum_approve')->get();
-        $data_dosen = DB::table('tb_dosen')->select('tb_dosen.*', 'tb_mhs_bimbingan.id_mhs_bimbingan')->join('tb_mhs_bimbingan', 'tb_dosen.id_dosen', '=', 'tb_mhs_bimbingan.id_dosen')->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->where('status_skripsi', 'belum_approve')->get();
+        $data_dosen = DB::table('tb_dosen')->select('tb_dosen.*', 'tb_mhs_bimbingan.id_mhs_bimbingan')->join('tb_mhs_bimbingan', 'tb_dosen.id_dosen', '=', 'tb_mhs_bimbingan.id_dosen')->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->where('status_skripsi', null)->get();
         // dd($data_dosen);
         return view('mhs-dosen-skripsi', compact('data_dosen'));
     }
@@ -430,7 +430,7 @@ class MhsBimbinganController extends Controller
     {
         $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->id_user)->first();
         // $data_mhs = MhsBimbingan::where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->where('status_sempro', 'belum_approve')->get();
-        $data_dosen = DB::table('tb_dosen')->select('tb_dosen.*', 'tb_mhs_bimbingan.id_mhs_bimbingan')->join('tb_mhs_bimbingan', 'tb_dosen.id_dosen', '=', 'tb_mhs_bimbingan.id_dosen')->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->where('status_hasil_skripsi', 'belum_approve')->get();
+        $data_dosen = DB::table('tb_dosen')->select('tb_dosen.*', 'tb_mhs_bimbingan.id_mhs_bimbingan')->join('tb_mhs_bimbingan', 'tb_dosen.id_dosen', '=', 'tb_mhs_bimbingan.id_dosen')->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->where('status_hasil_skripsi', null)->get();
         // dd($data_dosen);
         return view('mhs-dosen-rvs-skripsi', compact('data_dosen'));
     }

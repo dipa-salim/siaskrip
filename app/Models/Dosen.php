@@ -10,7 +10,7 @@ class Dosen extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_user', 'nama', 'nip', 'jenis_kelamin', 'no_hp', 'status_dosen'
+        'id_user', 'nama', 'nip', 'jenis_kelamin', 'email', 'no_hp', 'status_dosen'
     ];
 
     protected $primaryKey = 'id_dosen';

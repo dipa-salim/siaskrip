@@ -11,7 +11,7 @@ class Mahasiswa extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_user','nama', 'nim', 'jenis_kelamin', 'no_hp', 'angkatan'
+        'id_user','nama', 'nim', 'jenis_kelamin', 'email', 'no_hp', 'angkatan'
     ];
 
     protected $primaryKey = 'id_mahasiswa';

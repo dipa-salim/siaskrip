@@ -19,6 +19,7 @@ class Dosen extends Migration
             $table->string('nama', 255);
             $table->string('nip', 20);
             $table->enum('jenis_kelamin', ['L', 'P']);
+            $table->string('email')->unique();
             $table->string('no_hp', 15)->nullable();
             $table->boolean('status_dosen')->nullable();
             $table->timestamps();

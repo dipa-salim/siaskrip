@@ -21,6 +21,7 @@ class MahasiswaSeeder extends Seeder
             'nama' => 'Dipa Noor Salim',
             'nim' => '5235165132',
             'jenis_kelamin' => 'L',
+            'email' => 'dipa@gmail.com',
             'no_hp' => '08181818',
             'angkatan' => '2016',
             'created_at' => date('Y-m-d H:i:s'),

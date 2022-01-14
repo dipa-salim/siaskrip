@@ -20,6 +20,7 @@ class DosenSeeder extends Seeder
             'nama' => 'Irma Permata Sari, M.Eng.',
             'nip' => '12345678',
             'jenis_kelamin' => 'P',
+            'email' => 'buirma@gmail.com',
             'no_hp' => '0812181818',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
@@ -31,6 +32,7 @@ class DosenSeeder extends Seeder
             'nama' => 'Fuad Mumtas, M.T.I.',
             'nip' => '123456789',
             'jenis_kelamin' => 'L',
+            'email' => 'pakfuad@gmail.com',
             'no_hp' => '0812181818',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
@@ -42,6 +44,7 @@ class DosenSeeder extends Seeder
             'nama' => 'Dr. Yuliatri Sastrawijaya, M.Pd.',
             'nip' => '12345678',
             'jenis_kelamin' => 'p',
+            'email' => 'buyuli@gmail.com',
             'no_hp' => '0812181818',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
@@ -53,6 +56,7 @@ class DosenSeeder extends Seeder
             'nama' => 'Ali Idrus, M.Kom',
             'nip' => '123456789',
             'jenis_kelamin' => 'L',
+            'email' => 'pakali@gmail.com',
             'no_hp' => '0812181818',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
@@ -64,6 +68,7 @@ class DosenSeeder extends Seeder
             'nama' => 'Diat Nurhidayat, M.T.I',
             'nip' => '12345678',
             'jenis_kelamin' => 'L',
+            'email' => 'pakdiat@gmail.com',
             'no_hp' => '0812181818',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
@@ -75,6 +80,7 @@ class DosenSeeder extends Seeder
             'nama' => 'Z.E. Ferdi Fauzian Putra, S.Pd., M.Pd.T.',
             'nip' => '123456789',
             'jenis_kelamin' => 'L',
+            'email' => 'pakferdi@gmail.com',
             'no_hp' => '0812181818',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
@@ -86,6 +92,7 @@ class DosenSeeder extends Seeder
             'nama' => 'Muchammad Ficky Duskarnaen, M.Sc.',
             'nip' => '12345678',
             'jenis_kelamin' => 'L',
+            'email' => 'pakfiki@gmail.com',
             'no_hp' => '0812181818',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
@@ -97,6 +104,7 @@ class DosenSeeder extends Seeder
             'nama' => 'Hamidiilah Ajie, S.T., M.T.',
             'nip' => '123456789',
             'jenis_kelamin' => 'L',
+            'email' => 'pakajie@gmail.com',
             'no_hp' => '0812181818',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
@@ -108,6 +116,7 @@ class DosenSeeder extends Seeder
             'nama' => 'Dr. Ir. Dra. Erdawaty Kamaruddin, M.Pd',
             'nip' => '123456789',
             'jenis_kelamin' => 'P',
+            'email' => 'buerda@gmail.com',
             'no_hp' => '0812181818',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
@@ -119,6 +128,7 @@ class DosenSeeder extends Seeder
             'nama' => 'Murien Nugraheni, S.T., M.Cs.',
             'nip' => '123456789',
             'jenis_kelamin' => 'P',
+            'email' => 'bumurien@gmail.com',
             'no_hp' => '0812181818',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
@@ -130,6 +140,7 @@ class DosenSeeder extends Seeder
             'nama' => 'Bambang Prasetya Adhi, S.Pd., M.Kom.',
             'nip' => '123456789',
             'jenis_kelamin' => 'L',
+            'email' => 'pakbambang@gmail.com',
             'no_hp' => '0812181818',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
@@ -141,6 +152,7 @@ class DosenSeeder extends Seeder
             'nama' => 'Prasetyo Wibowo Yunanto, S.T., M.Eng.',
             'nip' => '123456789',
             'jenis_kelamin' => 'L',
+            'email' => 'pakpras@gmail.com',
             'no_hp' => '0812181818',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')

@@ -19,6 +19,7 @@ class CreateMahasiswasTable extends Migration
             $table->string('nama', 255);
             $table->string('nim', 15);
             $table->enum('jenis_kelamin', ['L', 'P']);
+            $table->string('email')->unique();
             $table->string('no_hp', 15)->nullable();
             $table->string('angkatan', 4);
             $table->timestamps();

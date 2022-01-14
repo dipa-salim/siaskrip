@@ -60,66 +60,77 @@ class DosenController extends Controller
      */
     public function store(Request $request)
     {
-        if (!$request->nama || $request->nama == "") {
-            Alert::error('Gagal', 'Username harus diisi');
-            return redirect()->back();
-        }
-
-        if (!$request->email || $request->email == "") {
-            Alert::error('Gagal', 'Email harus diisi');
-            return redirect()->back();
-        }
-
-        if (!$request->password || $request->password == "") {
-            Alert::error('Gagal', 'Password harus diisi');
-            return redirect()->back();
-        }
-
-        if (!$request->role || $request->role == "") {
-            Alert::error('Gagal', 'Role harus diisi');
-            return redirect()->back();
-        }
-
-        if (!$request->namaDosen || $request->namaDosen == "") {
-            Alert::error('Gagal', 'Nama Dosen harus diisi');
-            return redirect()->back();
-        }
-
-        if (!$request->nip || $request->nip == "") {
-            Alert::error('Gagal', 'Nomor Induk harus diisi');
-            return redirect()->back();
-        }
-
-        if (!$request->jenis_kelamin || $request->jenis_kelamin == "") {
-            Alert::error('Gagal', 'Jenis Kelamin harus diisi');
-            return redirect()->back();
-        }
-
-        if (!$request->no_hp || $request->no_hp == "") {
-            Alert::error('Gagal', 'Nomor HP harus diisi');
-            return redirect()->back();
-        }
-
-
-        $userDosen = User::create([
-            'nama' => $request->nama,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'role' => $request->role
+        $validator = Validator::make($request,[
+            'email' => 'unique:user'
         ]);
 
-        $userDosenId = $userDosen->id_user;
+        if ($validator->fails()) {
+            Alert::error('Gagal', 'Email sudah terdaftar');
+            return redirect()->back()->withErrors($validator);
+        } else {
+            if (!$request->nama || $request->nama == "") {
+                Alert::error('Gagal', 'Username harus diisi');
+                return redirect()->back();
+            }
 
-        Dosen::create([
-            'id_user' => $userDosenId,
-            'nama' => $request->namaDosen,
-            'nip' => $request->nip,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'no_hp' => $request->no_hp
-        ]);
+            if (!$request->email || $request->email == "") {
+                Alert::error('Gagal', 'Email harus diisi');
+                return redirect()->back();
+            }
 
-        Alert::success('Berhasil', 'File Berhasil Diupload');
-        return redirect()->back();
+            if (!$request->password || $request->password == "") {
+                Alert::error('Gagal', 'Password harus diisi');
+                return redirect()->back();
+            }
+
+            if (!$request->role || $request->role == "") {
+                Alert::error('Gagal', 'Role harus diisi');
+                return redirect()->back();
+            }
+
+            if (!$request->namaDosen || $request->namaDosen == "") {
+                Alert::error('Gagal', 'Nama Dosen harus diisi');
+                return redirect()->back();
+            }
+
+            if (!$request->nip || $request->nip == "") {
+                Alert::error('Gagal', 'Nomor Induk harus diisi');
+                return redirect()->back();
+            }
+
+            if (!$request->jenis_kelamin || $request->jenis_kelamin == "") {
+                Alert::error('Gagal', 'Jenis Kelamin harus diisi');
+                return redirect()->back();
+            }
+
+            if (!$request->no_hp || $request->no_hp == "") {
+                Alert::error('Gagal', 'Nomor HP harus diisi');
+                return redirect()->back();
+            }
+
+
+            $userDosen = User::create([
+                'nama' => $request->nama,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'role' => $request->role
+            ]);
+
+            $userDosenId = $userDosen->id_user;
+            $emailDosenId = $userDosen->email;
+
+            Dosen::create([
+                'id_user' => $userDosenId,
+                'nama' => $request->namaDosen,
+                'nip' => $request->nip,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'email' => $emailDosenId,
+                'no_hp' => $request->no_hp
+            ]);
+
+            Alert::success('Berhasil', 'File Berhasil Diupload');
+            return redirect()->back();
+        }
     }
 
     /**

@@ -49,7 +49,7 @@ class MahasiswaController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'email' => 'unique:user'
+            'email' => 'unique:tb_users'
         ]);
 
         if ($validator->fails()) {

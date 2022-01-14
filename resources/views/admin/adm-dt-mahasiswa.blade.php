@@ -27,6 +27,7 @@
                     <th>No.</th>
                     <th>NIM</th>
                     <th>Nama Mahasiswa</th>
+                    <th>Email</th>
                     <th>Angkatan</th>
                     <th>Jenis Kelamin</th>
                     <th>No. Telepon</th>
@@ -38,6 +39,7 @@
                     <td>{{ $key+1 }}</td>
                     <td>{{ $data->nim }}</td>
                     <td>{{ $data->nama }}</td>
+                    <td>{{ $data->email }}</td>
                     <td>{{ $data->angkatan }}</td>
                     <td>{{ $data->jenis_kelamin }}</td>
                     <td>{{ $data->no_hp }}</td>

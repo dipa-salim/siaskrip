@@ -38,7 +38,7 @@ class LogbookController extends Controller
             return redirect()->back();
         }
 
-        $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->id_user)->first();
+        $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->email)->first();
 
         $insert = Logbook::create([
             'id_mahasiswa' => $data_mahasiswa->id_mahasiswa,
@@ -61,11 +61,11 @@ class LogbookController extends Controller
 
     public function cetak()
     {
-        // $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->id_user)->first();
+        // $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->email)->first();
         // $data = DB::table('tb_logbook');
         // ->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->first();
 
-        $mahasiswa = Mahasiswa::where('id_user', auth()->user()->id_user)->first();
+        $mahasiswa = Mahasiswa::where('id_user', auth()->user()->email)->first();
         $dospem = MhsBimbingan::where('id_mahasiswa', $mahasiswa->id_mahasiswa)->where('status_dospem','disetujui')->get();
         $catatan = Logbook::where('id_mahasiswa', $mahasiswa->id_mahasiswa)->get();
 

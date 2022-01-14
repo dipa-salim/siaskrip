@@ -37,7 +37,7 @@ class HomeController extends Controller
 
     public function notif()
     {
-        $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->id_user)->first();
+        $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->email)->first();
 
         $data_surat = SuratTugas::where('status', 'approved')->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->first();
         $data_perpanjangan = SuratTugas::where('status', 'diperpanjang')->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->first();

@@ -37,7 +37,7 @@ class SemproController extends Controller
      */
     public function store(Request $request)
     {
-        $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->id_user)->first();
+        $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->email)->first();
         // dd($request->input("url_surat_dosen"));
 
         if (!$request->judul_skripsi || $request->judul_skripsi == "") {
@@ -76,7 +76,7 @@ class SemproController extends Controller
 
     public function storeRevisi(Request $request)
     {
-        $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->id_user)->first();
+        $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->email)->first();
         // dd($request->input("url_surat_dosen"));
 
         if (!$request->judul_skripsi || $request->judul_skripsi == "") {

@@ -10,16 +10,32 @@
             <a href="{{ url('https://linktr.ee/dosenptik') }}" target="_blank" class="nav-link">Contact Dosen</a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ url('https://absensi.smartptik.my.id/home') }}" target="_blank"><button type="button" class="btn btn-success btn-sm rounded-pill nav-link">Absensi Smart PTIK</button></a>
+            <a href="{{ url('') }}" target="_blank"><button type="button" class="btn btn-success btn-sm rounded-pill nav-link">Absensi Smart PTIK</button></a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ url('') }}" target="_blank"><button type="button" class="btn btn-danger btn-sm rounded-pill nav-link">PKL/PKM Smart PTIK</button></a>
           </li>
         @endif
 
         @if (auth()->user()->role == "Dosen")
-
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ url('') }}" target="_blank"><button type="button" class="btn btn-success btn-sm rounded-pill nav-link">Absensi Smart PTIK</button></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ url('') }}" target="_blank"><button type="button" class="btn btn-danger btn-sm rounded-pill nav-link">PKL/PKM Smart PTIK</button></a>
+        </li>
         @endif
 
         @if (auth()->user()->role == "Admin")
-
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ url('https://linktr.ee/dosenptik') }}" target="_blank" class="nav-link">Contact Dosen</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ url('') }}" target="_blank"><button type="button" class="btn btn-success btn-sm rounded-pill nav-link">Absensi Smart PTIK</button></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ url('') }}" target="_blank"><button type="button" class="btn btn-danger btn-sm rounded-pill nav-link">PKL/PKM Smart PTIK</button></a>
+        </li>
         @endif
     </ul>
 

@@ -172,7 +172,7 @@ class UserController extends Controller
             return redirect()->back();
         }
 
-        $update = User::where('id_user', auth()->user()->email)->update([
+        $update = User::where('email', auth()->user()->email)->update([
             'password' => Hash::make($request->password)
         ]);
 

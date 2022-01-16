@@ -44,7 +44,7 @@ class SuratTugasController extends Controller
 
     // public function store(Request $request)
     // {
-    //     $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->email)->first();
+    //     $data_mahasiswa = Mahasiswa::where('email', auth()->user()->email)->first();
     //     // dd($request->input("url_surat_dosen"));
 
     //     if (!$request->judul_skripsi || $request->judul_skripsi == "") {
@@ -86,8 +86,8 @@ class SuratTugasController extends Controller
     {
         DB::beginTransaction();
         try {
-            $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->email)->first();
-            // dd($request->input("url_surat_dosen"));
+            $data_mahasiswa = Mahasiswa::where('email', auth()->user()->email)->first();
+            // dd($data_mahasiswa);
 
             if (!$request->judul_skripsi || $request->judul_skripsi == "") {
                 Alert::error('Gagal', 'Judul skripsi harus diisi');
@@ -138,7 +138,7 @@ class SuratTugasController extends Controller
 
     public function storePerpanjang(Request $request)
     {
-        $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->email)->first();
+        $data_mahasiswa = Mahasiswa::where('email', auth()->user()->email)->first();
         // dd($request->input("url_surat_dosen"));
 
         $data_sebelumnya = SuratTugas::where('status', 'approved')->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->first();
@@ -344,7 +344,7 @@ class SuratTugasController extends Controller
 
     public function perpanjangan()
     {
-        $data_mahasiswa = Mahasiswa::where('id_user', auth()->user()->email)->first();
+        $data_mahasiswa = Mahasiswa::where('email', auth()->user()->email)->first();
         $surat_perpanjang = SuratTugas::where('status', 'approved')->where('id_mahasiswa', $data_mahasiswa->id_mahasiswa)->get();
         return view('srt-perpanjangan', [
             'data_surat_perpanjang' => $surat_perpanjang

@@ -21,7 +21,7 @@ class DosenController extends Controller
      */
     public function index()
     {
-        $dosen = Dosen::where('id_user', auth()->user()->email)->first();
+        $dosen = Dosen::where('email', auth()->user()->email)->first();
 
         $surat_tugas = MhsBimbingan::where('status_surat_tugas', 'belum_approve')->where('id_dosen',$dosen->id_dosen)->count();
         $sempro = MhsBimbingan::where('status_sempro', 'belum_approve')->where('id_dosen',$dosen->id_dosen)->count();
@@ -185,7 +185,7 @@ class DosenController extends Controller
     // Halaman Dosen
     public function mhsBimbingan()
     {
-        $data_dosen = Dosen::where('id_user', auth()->user()->email)->first();
+        $data_dosen = Dosen::where('email', auth()->user()->email)->first();
         $data_mahasiswa = DB::table('tb_mahasiswa AS tm')->select('tm.nim', 'tm.nama', 'tm.angkatan', 'tmb.judul_skripsi')
             ->join('tb_surat_tugas AS tst', 'tm.id_mahasiswa', '=', 'tst.id_mahasiswa')
             ->join('tb_mhs_bimbingan AS tmb', 'tm.id_mahasiswa', '=', 'tmb.id_mahasiswa')
@@ -206,7 +206,7 @@ class DosenController extends Controller
 
     public function pengajuanMahasiswa()
     {
-        $dosen = Dosen::where('id_user', auth()->user()->email)->first();
+        $dosen = Dosen::where('email', auth()->user()->email)->first();
         $surat_pengajuan = MhsBimbingan::whereIn('status_surat_tugas', ['belum_approve', 'approved'])->where('id_dosen', $dosen->id_dosen)->get();
         return view('dosen.pengajuan-mhs', [
             'data_pengajuan' => $surat_pengajuan
@@ -215,7 +215,7 @@ class DosenController extends Controller
 
     public function semproDosen()
     {
-        $dosen = Dosen::where('id_user', auth()->user()->email)->first();
+        $dosen = Dosen::where('email', auth()->user()->email)->first();
         $surat_pengajuan = MhsBimbingan::whereIn('status_sempro', ['belum_approve', 'approved'])->where('id_dosen', $dosen->id_dosen)->get();
         return view('dosen.dosen-sempro', [
             'data_dosen_sempro' => $surat_pengajuan
@@ -224,7 +224,7 @@ class DosenController extends Controller
 
     public function revisiSempro()
     {
-        $dosen = Dosen::where('id_user', auth()->user()->email)->first();
+        $dosen = Dosen::where('email', auth()->user()->email)->first();
         $surat_pengajuan = MhsBimbingan::whereIn('status_surat_skripsi', ['belum_approve', 'approved'])->where('id_dosen', $dosen->id_dosen)->get();
         return view('dosen.dosen-rvs-sempro', [
             'data_rvs_sempro' => $surat_pengajuan
@@ -233,7 +233,7 @@ class DosenController extends Controller
 
     public function skripsiDosen()
     {
-        $dosen = Dosen::where('id_user', auth()->user()->email)->first();
+        $dosen = Dosen::where('email', auth()->user()->email)->first();
         $surat_pengajuan = MhsBimbingan::whereIn('status_skripsi', ['belum_approve', 'approved'])->where('id_dosen', $dosen->id_dosen)->get();
         return view('dosen.dosen-skripsi', [
             'data_dosen_skripsi' => $surat_pengajuan
@@ -242,7 +242,7 @@ class DosenController extends Controller
 
     public function revisiSkripsi()
     {
-        $dosen = Dosen::where('id_user', auth()->user()->email)->first();
+        $dosen = Dosen::where('email', auth()->user()->email)->first();
         $surat_pengajuan = MhsBimbingan::whereIn('status_hasil_skripsi', ['belum_approve', 'approved'])->where('id_dosen', $dosen->id_dosen)->get();
         return view('dosen.dosen-rvs-skripsi', [
             'data_rvs_skripsi' => $surat_pengajuan

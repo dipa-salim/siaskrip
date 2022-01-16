@@ -1,12 +1,26 @@
 <nav class="main-header navbar navbar-expand navbar-primary navbar-dark">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ url('https://linktr.ee/dosenptik') }}" target="_blank" class="nav-link">Contact Dosen</a>
-      </li>
+
+        @if (auth()->user()->role == "Mahasiswa")
+        {{-- <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+          </li> --}}
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ url('https://linktr.ee/dosenptik') }}" target="_blank" class="nav-link">Contact Dosen</a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ url('https://absensi.smartptik.my.id/home') }}" target="_blank"><button type="button" class="btn btn-success btn-sm rounded-pill nav-link">Absensi Smart PTIK</button></a>
+          </li>
+        @endif
+
+        @if (auth()->user()->role == "Dosen")
+
+        @endif
+
+        @if (auth()->user()->role == "Admin")
+
+        @endif
     </ul>
 
     <!-- Right navbar links -->

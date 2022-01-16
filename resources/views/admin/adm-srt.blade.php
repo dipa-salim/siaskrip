@@ -30,7 +30,7 @@
                     <th>Dosen Pembimbing 2</th>
                     <th>Dokumen Keperluan</th>
                     <th>Action</th>
-                    <th>Laporan</th>
+                    {{-- <th>Laporan</th> --}}
                 </tr>
             </thead>
             <tbody>
@@ -55,9 +55,9 @@
                         <a href="{{ route('SuratTugas.cancelSurat', ['id' => $data->id_surat_tugas]) }}" class="btn btn-danger btn-block btn-sm" >Batal</a>
                         @endif
                     </td>
-                    <td align="center">
+                    {{-- <td align="center">
                         <button class="btn btn-primary btn-block btn-sm" style="width: 50%">✓</button>
-                    </td>
+                    </td> --}}
                 </tr>
                 @endforeach
             </tbody>

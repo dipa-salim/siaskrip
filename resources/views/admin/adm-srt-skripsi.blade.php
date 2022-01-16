@@ -123,8 +123,9 @@
         </div>
     </div>
 </form>
+@endforeach
   @endsection
-  @endforeach
+
   @push('custom-script')
    <!-- Page specific script -->
 <script src="{{ asset('adminlte') }}/plugins/jquery/jquery.min.js"></script>

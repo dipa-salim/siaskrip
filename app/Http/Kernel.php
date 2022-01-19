@@ -67,5 +67,6 @@ class Kernel extends HttpKernel
         'cek.Mahasiswa' => \App\Http\Middleware\UserIsMahasiswa::class,
         'cek.Kaprodi' => \App\Http\Middleware\UserIsKaprodi::class,
         'cek.Dosen' => \App\Http\Middleware\UserIsDosen::class,
+        'jwt.verify' => \App\Http\Middleware\JwtMiddleware::class,
     ];
 }

@@ -75,9 +75,8 @@ class AuthController extends Controller
             $data = [
                 'iat' => strtotime("now"),
                 'exp' => strtotime("now") + 72000,
-                'name' => Auth::user()->name,
+                'name' => Auth::user()->nama,
                 'email' => Auth::user()->email,
-                'username' => Auth::user()->username,
                 'role' => Auth::user()->role,
                 'sub' => 'SSO-SMARTPTIK'
             ];

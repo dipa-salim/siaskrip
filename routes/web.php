@@ -30,14 +30,15 @@ use App\Http\Controllers\MhsBimbinganController;
 */
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
-Route::post('login', [AuthController::class, 'login'])->name('login.custom');
+// Route::post('login', [AuthController::class, 'login'])->name('login.custom');
+Route::post('login', [AuthController::class, 'loginjwt'])->name('login.custom');
 // Route::get('register', [AuthController::class, 'register']);
 // Route::post('register', [AuthController::class, 'store'])->name('Auth.store');
 Route::get('logout', [AuthController::class, 'logout']);
 
 // Halaman Home (Mahasiswa, Admin, Kaprodi, Dosen)
 // ( Mahasiswa )
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['jwt.verify'])->group(function () {
     Route::get('/ubah-password', [UserController::class, 'ubah']);
     Route::post('/ubah-password', [UserController::class, 'update'])->name('User.update');
     Route::middleware(['cek.Mahasiswa'])->group(function () {

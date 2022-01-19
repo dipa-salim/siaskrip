@@ -33,7 +33,7 @@ class JwtMiddleware extends BaseMiddleware
                 }
             }
 
-            $request->user = JWTAuth::parseToken()->authenticate();
+            $request->user = JWTAuth::parseToken();
 
             if(!Auth::check()) {
                 $userId = DB::table('tb_users')->select('id_user')->where('email', $request->user->getPayload()->get('email'))->first();
@@ -42,7 +42,6 @@ class JwtMiddleware extends BaseMiddleware
                 Auth::loginUsingId($userId);
             }
         } catch (Exception $e) {
-            // dd($e);
             return redirect('login');
             // if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenInvalidException){
             //     return response()->json(['status' => 'Token is Invalid']);

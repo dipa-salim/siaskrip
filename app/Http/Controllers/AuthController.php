@@ -63,15 +63,16 @@ class AuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if ($token = Auth::attempt($credentials)) {
-            $customClaims = [
-                'email' => auth()->user()->email
-            ];
+            // $customClaims = [
+            //     'email' => auth()->user()->email
+            // ];
 
             // $payload = JWTFactory::make($customClaims);
             // $token = JWTAuth::encode($payload);
             // dd($token);
 
             // $cookie_token = cookie('smarttoken', $token, time() + 60 * 60 * 24, '/', '.app.test');
+            // dd(Auth::user());
             $data = [
                 'iat' => strtotime("now"),
                 'exp' => strtotime("now") + 72000,
@@ -87,9 +88,9 @@ class AuthController extends Controller
                 'HS256'
             );
             $request->session()->put('username', Auth::user()->username);
-            $cookie_name = "smarttoken";
+            $cookie_name = env("TOKEN_NAME","smarttoken");
             $cookie_value = $jwt;
-            setcookie($cookie_name, $cookie_value, strtotime("now") + (86400 * 1), "/", ".app.test");
+            setcookie($cookie_name, $cookie_value, strtotime("now") + (86400 * 1), "/", env("TOKEN_DOMAIN",".app.test"));
 
             // $cookie_token = cookie('smarttoken', $token, time() + 60 * 60 * 24, '/', '.app.test');
             if (Auth::user()->role == "Admin") {
